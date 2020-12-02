@@ -18,7 +18,6 @@ Vue.use(ElementUI);
 // 设置title
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {
-    console.log(to.meta.title,'to.meta.title')
     document.title = to.meta.title
   }
   next()

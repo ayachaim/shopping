@@ -12,8 +12,6 @@ import HelloWorld from '@/components/HelloWorld.vue'
 // 引用api
 import { login } from 'api/user'
 
-console.log(process.env.TEST)
-
 export default {
   name: 'home',
   components: {

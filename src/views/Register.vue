@@ -45,7 +45,7 @@
       </el-row>
       </div>
     </el-main>
-    <el-footer  class="footer">
+    <el-footer  class="footer hidden-xs-only">
       <p>@2020 早起的阿柴版权所有</p>
       <hr>
       <p>@2020 早起的阿柴版权所有</p>
@@ -55,7 +55,7 @@
 <script>
 
 // 引用api
-import { login } from 'api/user'
+
 
 
 export default {
@@ -64,6 +64,14 @@ export default {
 
   },
   data() {
+    //自定义校验规则
+    var EntryValidator = (rule, value, callback) => {
+      if(value !== this.ruleForm.password){
+        callback(new Error("两次输入的密码不一致!"));
+      }else{
+        callback();
+      }
+    };
     return {
       //表单数据
       ruleForm: {
@@ -81,7 +89,7 @@ export default {
           { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' }
         ],
         confirmpassword: [
-          { required: true, message: '请再次输入密码', trigger: 'blur' },
+          { validator: EntryValidator, trigger: 'blur' },
           { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' }
         ]
       }

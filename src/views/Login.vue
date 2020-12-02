@@ -42,7 +42,7 @@
         </el-row>
       </div>
     </el-main>
-    <el-footer  class="footer">
+    <el-footer  class="footer hidden-xs-only">
       <p>@2020 早起的阿柴版权所有</p>
       <hr>
       <p>@2020 早起的阿柴版权所有</p>
