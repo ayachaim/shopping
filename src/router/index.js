@@ -10,6 +10,14 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: '/',
+      component: () => import('@/views/Home'),
+      // redirect: '/register',
+      meta: {
+        title: '商城首页'
+      },
+    },
+    {
       path: '/404',
       name: 'nofind',
       component: () => import('@/views/common/404'),
@@ -21,9 +29,15 @@ export default new Router({
       path: '/login',
       component: () => import('@/views/Login'),
       meta: {
-        title: 'demo页面'
+        title: '登录'
       },
-      children: [...demo]
+    },
+    {
+      path: '/register',
+      component: () => import('@/views/Register'),
+      meta: {
+        title: '注册'
+      },
     }
   ]
 })

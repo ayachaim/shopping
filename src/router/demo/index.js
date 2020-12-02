@@ -10,7 +10,7 @@ export default [
   {
     path: 'about',
     name: 'demoabout',
-    component: () => import('@/views/About'),
+    component: () => import('@/views/Register'),
     meta: {
       title: '关于Demo'
     }

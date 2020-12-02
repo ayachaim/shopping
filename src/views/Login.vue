@@ -3,14 +3,14 @@
     <el-header class="header hidden-xs-only">
       <el-row>
         <el-col :xs="{span: 24, offset: 4}" :sm="{span: 10, offset: 4}" :md="{span: 8, offset: 4}" :lg="{span: 6, offset: 4}" :xl="{span: 4, offset: 4}" class="hidden-xs-only col-header">
-          <img src="@/assets/logobig.png" alt="shopping image">
+          <a @click="toHome"><img src="@/assets/logobig.png" alt="shopping image"></a>
         </el-col>
       </el-row>
     </el-header>
     <el-main class="main">
         <el-row>
           <el-col :xs="{span: 0, offset: 0}" :sm="{span: 7, offset: 2}" :md="{span: 6, offset: 3}" :lg="{span: 5, offset: 4}" :xl="{span: 4, offset: 5}" class="hidden-xs-only col-main">
-            <img src="@/assets/loginpage.png" alt="shopping image">
+            <img src="@/assets/loginpage.png" alt="login image">
           </el-col>
           <el-col :xs="{span: 24, offset: 0}" :sm="{span: 10, offset: 2}" :md="{span: 8, offset: 3}" :lg="{span: 6, offset: 4}" :xl="{span: 5, offset: 5}" class=" col-main">
             <div class="formWrapper">
@@ -21,20 +21,20 @@
                   :model="ruleForm"
                   status-icon
                   :rules="rules"
-                  ref="ruleForm"
+                  ref="form"
                   label-width="0"
                   class="demo-ruleForm"
               >
                 <el-form-item>
-                  <el-input  prefix-icon="el-icon-s-custom" auto-complete="off" placeholder="请输入用户名"></el-input>
+                  <el-input v-model="ruleForm.username" prefix-icon="el-icon-s-custom" auto-complete="off" placeholder="请输入用户名"></el-input>
                 </el-form-item>
                 <el-form-item >
-                  <el-input prefix-icon="el-icon-s-cooperation" type="password" auto-complete="off" placeholder="输入密码"></el-input>
+                  <el-input v-model="ruleForm.password" prefix-icon="el-icon-s-cooperation" type="password" auto-complete="off" placeholder="输入密码"></el-input>
                 </el-form-item>
                 <el-form-item>
                   <el-button type="primary">登录</el-button>
                   <br/>
-                  <p>没有账户？立即<a>注册</a></p>
+                 <a @click="toRegister">没有账户？立即注册</a>
                 </el-form-item>
               </el-form>
             </div>
@@ -52,34 +52,53 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
-// 引用api
-import { login } from 'api/user'
 
-console.log(process.env.TEST)
 
 export default {
-  name: 'home',
+  name: 'login',
   components: {
-    HelloWorld
+
+  },
+  data() {
+    return {
+      //表单数据
+      ruleForm: {
+        username: '',
+        password: '',
+      },
+      //校验规则
+      rules: {
+        username: [
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' }
+        ],
+      }
+    };
   },
   methods: {
     /**
-     * [loadData axios示例]
+     * 登录
      * @return
      */
-    loadData(){
-      login({
-        uid: 1233
-      })
-          .then(res => {
-            if (res.code === 200) {
-            }
-          })
-          .catch(err => {
-            console.log(err)
-          })
+    login(form){
+      this.$refs[form].validate((valid) => {
+        if (valid) {
+          //请求
+          console.log(this.ruleForm,'valid')
+        } else {
+          return false;
+        }
+      });
+    },
+    toRegister(){
+      this.$router.push({ path:"/register" });
+    },
+    toHome(){
+      this.$router.push({ path:"/" });
     }
   }
 }
@@ -130,7 +149,12 @@ export default {
           }
         }
       }
-
+    }
+    a{
+      color:#66b1ff;
+      &:hover{
+        cursor:pointer
+      }
     }
     .footer{
 
