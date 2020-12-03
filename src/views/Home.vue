@@ -18,7 +18,7 @@
     </el-header>
     <el-main class="main">
       <!--      search bar-->
-      <div>
+      <div class="search-bar">
         <el-row type="flex" align="middle">
           <el-col :xs="{span: 0, offset: 0}" :sm="{span: 4, offset: 2}" :md="{span: 4, offset: 2}" :lg="{span: 4, offset: 2}" :xl="{span: 4, offset: 2}" class="hidden-xs-only col-main">
             <img class="hidden-xs-only" src="@/assets/logobig.png" alt="shopping image">
@@ -126,14 +126,8 @@ export default {
     .el-main{
       .search-bar{
         //加入padding
-        img{
-          max-height:8rem;
-          max-width:8rem;
-          padding:3rem;
-        }
-        .el-input__inner{
-          padding:1rem;
-        }
+        padding:1rem;
+
       }
     }
   }
