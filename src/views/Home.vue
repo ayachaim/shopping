@@ -30,44 +30,35 @@
           </el-col>
         </el-row>
       </div>
-<!--      <el-row>-->
-<!--        <el-col :xs="{span: 0, offset: 0}" :sm="{span: 7, offset: 2}" :md="{span: 6, offset: 3}" :lg="{span: 5, offset: 2}" :xl="{span: 2, offset: 5}" class="hidden-xs-only col-main">-->
-<!--          <img src="@/assets/loginpage.png" alt="login image">-->
-<!--        </el-col>-->
-<!--        <el-col :xs="{span: 22, offset: 0}" :sm="{span: 10, offset: 2}" :md="{span: 2, offset: 3}" :lg="{span: 6, offset: 2}" :xl="{span: 5, offset: 5}" class=" col-main">-->
-<!--          <div class="formWrapper">-->
-<!--            <br/>-->
-<!--            <h3 class="title">登录</h3>-->
-<!--            <br/>-->
-<!--            <el-form-->
-<!--                :model="ruleForm"-->
-<!--                status-icon-->
-<!--                :rules="rules"-->
-<!--                ref="form"-->
-<!--                label-width="0"-->
-<!--                class="demo-ruleForm"-->
-<!--            >-->
-<!--              <el-form-item>-->
-<!--                <el-input v-model="ruleForm.username" prefix-icon="el-icon-s-custom" auto-complete="off" placeholder="请输入用户名"></el-input>-->
-<!--              </el-form-item>-->
-<!--              <el-form-item >-->
-<!--                <el-input v-model="ruleForm.password" prefix-icon="el-icon-s-cooperation" type="password" auto-complete="off" placeholder="输入密码"></el-input>-->
-<!--              </el-form-item>-->
-<!--              <el-form-item>-->
-<!--                <el-button type="primary">登录</el-button>-->
-<!--                <br/>-->
-<!--                <a @click="toRegister">没有账户？立即注册</a>-->
-<!--              </el-form-item>-->
-<!--            </el-form>-->
-<!--          </div>-->
-<!--        </el-col>-->
-<!--      </el-row>-->
-<!--      </div>-->
+<!--      shop nav-->
+      <div class="shop-nav">
+<!--        NavMenu-->
+        <div class="nav-menu hidden-xs-only">
+          <span>全部分类</span>
+        </div>
+        <div class="slide-bar">
+<!--          cascader只能自己单独封装-->
+          <div class="cascader">
+            <el-cascader-panel :options="options"></el-cascader-panel>
+          </div>
+<!--          slide-->
+          <div class="slide">
+            <el-carousel height="30rem">
+              <el-carousel-item>
+                <img src='@/assets/loginpage.png' alt="slide image">
+              </el-carousel-item>
+              <el-carousel-item>
+                <img src='@/assets/loginpage.png' alt="slide image">
+              </el-carousel-item>
+            </el-carousel>
+          </div>
+
+        </div>
+      </div>
     </el-main>
     <el-footer  class="footer hidden-xs-only">
-<!--      <p>@2020 早起的阿柴版权所有</p>-->
-<!--      <hr>-->
-<!--      <p>@2020 早起的阿柴版权所有</p>-->
+<!--      backtop-->
+      <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
     </el-footer>
   </el-container>
 </template>
@@ -82,6 +73,24 @@ export default {
   directives:{ waves },
   name: 'home',
   components: {
+  },
+  data(){
+    return {
+      slideIMG:[
+          '@/assets/loginpage.png',
+        '@/assets/loginpage.png',
+        '@/assets/loginpage.png',
+        '@/assets/loginpage.png',
+      ],
+      options: [{
+        value: 'zhinan',
+        label: '指南',
+        children: [{
+          value: 'shejiyuanze',
+          label: '设计原则',
+        }]
+      }]
+    }
   },
   methods: {
     /**
@@ -100,7 +109,9 @@ export default {
 <style lang="less" scoped>
 .el-container{
   background-color:@bgColor;
+  padding:0;
   .el-header{
+    padding:0;
     .notice{
       text-align:center;
       font-family:system-ui;
@@ -123,13 +134,45 @@ export default {
         }
       }
     }
-    .el-main{
-      .search-bar{
-        //加入padding
+  }
+  .el-main{
+    padding:0;
+    .search-bar{
+      padding:1rem;
+    }
+    .shop-nav{
+      .slide-bar{
         padding:1rem;
-
+        border:1px solid red;
+        text-align:center;
+        //子元素为block,verticalalign不生效,子元素和父元素行高一致可以垂直居中
+        .el-carousel__item{
+          line-height:30rem;
+        }
+        .slide{
+          position:relative;
+        }
+        .el-cascader-panel{
+          position:absolute;
+          z-index:999;
+        }
+      }
+      //不能自适应宽高
+      .nav-menu{
+        height:10%;
+        span{
+          display:block;
+          background-color:@mainBgColor;
+          width:10%;
+          line-height:3rem;
+          font-size:1rem;
+          margin-left:5rem;
+          text-align:center;
+          color:white;
+        }
       }
     }
+
   }
 
 
