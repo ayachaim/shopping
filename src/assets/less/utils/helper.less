@@ -9,6 +9,23 @@
   display: flex;
 }
 
+.ui-flex-direction-row{
+  flex-direction:row;
+}
+
+.ui-flex-direction-colomn{
+  flex-direction:colomn;
+}
+
+.ui-flex-nowrap {
+  flex-wrap:nowrap;
+}
+
+.ui-flex-between {
+  justify-content:space-between;
+}
+
+
 .ui-flex__item{
   flex: 1;
 }
@@ -95,4 +112,25 @@
   padding: 0;
   position: absolute !important;
   width: 1px;
+}
+//覆盖element input focus
+.el-input__inner:focus{
+  border:0.1rem solid @mainBgColor;
+  border-radius:0.01rem;
+}
+
+
+
+.el-input__inner:hover{
+  border:0.13rem solid @error;
+  border-radius:0.01rem;
+}
+.el-input__inner{
+  border:0.02rem solid @error;
+  border-radius:0.02rem;
+}
+//apend button
+.el-input-group__append {
+  background-color: @mainBgColor;
+  border:0.02rem solid @mainBgColor;
 }

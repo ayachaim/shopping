@@ -12,7 +12,6 @@ export default new Router({
     {
       path: '/',
       component: () => import('@/views/Home'),
-      // redirect: '/register',
       meta: {
         title: '商城首页'
       },
