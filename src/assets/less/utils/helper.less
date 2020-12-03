@@ -115,22 +115,47 @@
 }
 //覆盖element input focus
 .el-input__inner:focus{
-  border:0.1rem solid @mainBgColor;
+  border:0.14rem solid @mainBgColor;
   border-radius:0.01rem;
 }
 
 
 
 .el-input__inner:hover{
-  border:0.13rem solid @error;
-  border-radius:0.01rem;
+  border:0.14rem solid @error;
+  border-radius:0.1rem;
 }
 .el-input__inner{
   border:0.02rem solid @error;
-  border-radius:0.02rem;
+  border-radius:0.1rem;
 }
 //apend button
 .el-input-group__append {
   background-color: @mainBgColor;
   border:0.02rem solid @mainBgColor;
+}
+.el-button:hover{
+  opacity:0.5;
+  span{
+    color:white;
+  }
+  i{
+    color:white;
+  }
+}
+
+
+.el-button:active{
+  opacity:0.1;
+  transform: scale(0, 1);
+  transition: all .6s;
+}
+
+.el-button{
+  span{
+    color:white;
+  }
+  i{
+    color:white;
+  }
 }

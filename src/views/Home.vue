@@ -25,7 +25,7 @@
           </el-col>
           <el-col :xs="{span: 24, offset: 0}" :sm="{span: 12, offset: 0}" :md="{span: 12, offset: 0}" :lg="{span: 12, offset: 0}" :xl="{span: 12, offset: 0}">
             <el-input clearable="true" placeholder="请输入内容" v-model="input" class="input">
-              <el-button slot="append" icon="el-icon-search">搜索</el-button>
+              <el-button v-waves slot="append" icon="el-icon-search">搜索</el-button>
             </el-input>
           </el-col>
         </el-row>
@@ -75,8 +75,11 @@
 <script>
 
 
+import waves from '@/components/waves';
 
 export default {
+  //搜索按钮水波纹效果
+  directives:{ waves },
   name: 'home',
   components: {
   },
@@ -122,7 +125,8 @@ export default {
     }
     .el-main{
       .search-bar{
-        &img{
+        //加入padding
+        img{
           max-height:8rem;
           max-width:8rem;
           padding:3rem;
@@ -132,7 +136,6 @@ export default {
         }
       }
     }
-
   }
 
 
