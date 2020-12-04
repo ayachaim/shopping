@@ -32,28 +32,33 @@
       </div>
 <!--      shop nav-->
       <div class="shop-nav">
+        <div class="slide-all">
 <!--        NavMenu-->
-        <div class="nav-menu hidden-xs-only">
-          <span>全部分类</span>
-        </div>
-        <div class="slide-bar">
-<!--          cascader只能自己单独封装-->
-          <div class="cascader">
-            <el-cascader-panel :options="options"></el-cascader-panel>
+          <div class="slide-container">
+            <div class="nav-menu hidden-xs-only">
+              <span>全部分类</span>
+            </div>
+            <div class="slide-bar">
+              <!--          cascader只能自己单独封装-->
+              <!--            <el-cascader-panel :options="options"></el-cascader-panel>-->
+              <Cascader />
+            </div>
           </div>
-<!--          slide-->
+
           <div class="slide">
             <el-carousel height="30rem">
               <el-carousel-item>
-                <img src='@/assets/loginpage.png' alt="slide image">
+                <img src='@/assets/ceshi1111.png' alt="slide image">
               </el-carousel-item>
               <el-carousel-item>
-                <img src='@/assets/loginpage.png' alt="slide image">
+                <img src='@/assets/ceshi1111.png' alt="slide image">
               </el-carousel-item>
             </el-carousel>
           </div>
-
+          </div>
         </div>
+        <!--          slide-->
+
       </div>
     </el-main>
     <el-footer  class="footer hidden-xs-only">
@@ -67,12 +72,14 @@
 
 
 import waves from '@/components/waves';
+import Cascader from '@/components/Cascader.vue'
 
 export default {
   //搜索按钮水波纹效果
   directives:{ waves },
   name: 'home',
   components: {
+    Cascader
   },
   data(){
     return {
@@ -137,40 +144,67 @@ export default {
   }
   .el-main{
     padding:0;
+    height:100rem;
     .search-bar{
       padding:1rem;
     }
     .shop-nav{
-      .slide-bar{
-        padding:1rem;
-        border:1px solid red;
-        text-align:center;
-        //子元素为block,verticalalign不生效,子元素和父元素行高一致可以垂直居中
-        .el-carousel__item{
-          line-height:30rem;
+      position:relative;
+      .slide-all{
+        height:40rem;
+        width:100%;
+        .slide-container{
+          border:1px solid black;
+          width:100%;
+          height:30rem;
+          //margin:0 10%;
+          .nav-menu{
+            span{
+              display:block;
+              background-color:@mainBgColor;
+              width:10%;
+              line-height:3rem;
+              font-size:1rem;
+              //margin-left:5rem;
+              text-align:center;
+              color:white;
+            }
+          }
+          .slide-bar{
+            //margin:0 10%;
+            text-align:center;
+            width:10%;
+            //border:1px solid blue;
+            z-index:999;
+            //子元素为block,verticalalign不生效,子元素和父元素行高一致可以垂直居中
+
+          }
         }
+        //margin:auto 3rem ;
+        //width:auto;
+        //left:6rem;
+
         .slide{
-          position:relative;
-        }
-        .el-cascader-panel{
           position:absolute;
-          z-index:999;
+          height:30rem;
+          top:0;
+          width:100%;
+          left:46%;
+          transform:translateX(-50%);
+          z-index:888;
+          .el-carousel{
+            text-align:center;
+            .el-carousel__item{
+              line-height:30rem;
+              & img{
+                height:100%;
+              }
+            }
+          }
         }
+
       }
-      //不能自适应宽高
-      .nav-menu{
-        height:10%;
-        span{
-          display:block;
-          background-color:@mainBgColor;
-          width:10%;
-          line-height:3rem;
-          font-size:1rem;
-          margin-left:5rem;
-          text-align:center;
-          color:white;
-        }
-      }
+
     }
 
   }
