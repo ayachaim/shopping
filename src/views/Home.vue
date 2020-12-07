@@ -64,6 +64,7 @@
     <el-footer  class="footer hidden-xs-only">
 <!--      backtop-->
       <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
+      <div style="height:300px;width:300px">12312313</div>
     </el-footer>
   </el-container>
 </template>
@@ -208,8 +209,6 @@ export default {
     }
 
   }
-
-
 }
 
 </style>

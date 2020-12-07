@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import 'element-ui/lib/theme-chalk/display.css';
 // base样式
 import '@/assets/less/base.less'
+// import 'lib-flexible/flexible.js'
 
 
 Vue.config.productionTip = false
