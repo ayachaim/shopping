@@ -34,7 +34,7 @@
         <el-row type="flex" align="middle" justify="center" class="banner">
           <el-col :xs="{span: 24, offset: 0}" :sm="{span: 24, offset: 0}" :md="{span: 24, offset: 0}" :lg="{span: 24, offset: 0}" :xl="{span: 24, offset: 0}">
             <div class="banner-container">
-              <el-carousel height="30rem" :style="{'background-color':(isShowBg ?'orange':'black')}">
+              <el-carousel height="30rem">
                 <el-carousel-item>
                   <img src='@/assets/banner-list1.jpg' alt="slide image">
                 </el-carousel-item>
@@ -112,11 +112,6 @@ export default {
       this.$router.push({ path:type });
     }
   },
-  watch:{
-    isShowBg(val){
-      console.log(val,'val')
-    }
-  },
 }
 </script>
 
@@ -163,6 +158,7 @@ export default {
         //left:10rem;
         z-index:888;
         .banner-container{
+          background: linear-gradient(to right,#d3959b,#bfe6ba);
           top:0;
           width:100%;
           //height:30rem;

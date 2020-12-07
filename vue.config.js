@@ -71,18 +71,9 @@ module.exports = {
       less: {
         javascriptEnabled: true
       },
-      // postcss: function() {
-      //   return [px2rem({remUnit: 37.5})]
-      // },
-      // vue: {
-      //   postcss: [require('postcss-px2rem')({remUnit: 37.5})]
-      // },
-      // css: {},
       // postcss: {
       //   plugins: [
-      //     require("postcss-px2rem")({
-      //       remUnit: 18.75
-      //     })
+      //     require('postcss-px2rem')({remUnit: 75}), // 换算的基数
       //   ]
       // }
     },
