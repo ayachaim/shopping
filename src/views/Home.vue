@@ -14,7 +14,6 @@
           <i class="el-icon-user hidden-xs-only"><a class="hidden-xs-only" @click="toRouter('/users')">个人中心</a></i>
         </div>
       </div>
-
     </el-header>
     <el-main class="main">
       <!--      search bar-->
@@ -31,34 +30,37 @@
         </el-row>
       </div>
 <!--      shop nav-->
-<!--      <div class="shop-nav">-->
-<!--        <div class="slide-all">-->
-<!--&lt;!&ndash;        NavMenu&ndash;&gt;-->
-<!--          <div class="slide-container">-->
-<!--            <div class="nav-menu hidden-xs-only">-->
-<!--              <span>全部分类</span>-->
-<!--            </div>-->
-<!--            <div class="slide-bar">-->
-<!--              &lt;!&ndash;          cascader只能自己单独封装&ndash;&gt;-->
-<!--              &lt;!&ndash;            <el-cascader-panel :options="options"></el-cascader-panel>&ndash;&gt;-->
-<!--              <Cascader />-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="slide">-->
-<!--            <el-carousel height="30rem">-->
-<!--              <el-carousel-item>-->
-<!--&lt;!&ndash;                <img src='@/assets/ceshi1111.png' alt="slide image">&ndash;&gt;-->
-<!--              </el-carousel-item>-->
-<!--              <el-carousel-item>-->
-<!--&lt;!&ndash;                <img src='@/assets/ceshi1111.png' alt="slide image">&ndash;&gt;-->
-<!--              </el-carousel-item>-->
-<!--            </el-carousel>-->
-<!--          </div>-->
-<!--          </div>-->
-<!--        </div>-->
-        <!--          slide-->
-
+      <div class="index">
+        <el-row type="flex" align="middle" justify="center" class="banner">
+          <el-col :xs="{span: 24, offset: 0}" :sm="{span: 24, offset: 0}" :md="{span: 24, offset: 0}" :lg="{span: 24, offset: 0}" :xl="{span: 24, offset: 0}">
+            <div class="banner-container">
+              <el-carousel height="30rem" :style="{'background-color':(isShowBg ?'orange':'black')}">
+                <el-carousel-item>
+                  <img src='@/assets/banner-list1.jpg' alt="slide image">
+                </el-carousel-item>
+                <el-carousel-item>
+                  <img src='@/assets/banner-list2.jpg' alt="slide image">
+                </el-carousel-item>
+                <el-carousel-item>
+                  <img src='@/assets/banner-list3.jpg' alt="slide image">
+                </el-carousel-item>
+              </el-carousel>
+            </div>
+          </el-col>
+        </el-row>
+        <el-row type="flex" align="middle" justify="center" class="shop-nav hidden-xs-only hidden-sm-only">
+          <el-col :xs="{span: 0, offset: 0}" :sm="{span: 24, offset: 0}" :md="{span: 24, offset: 0}" :lg="{span: 24, offset: 0}" :xl="{span: 24, offset: 0}">
+              <div class="slide-container">
+                <div class="nav-menu">
+                  <span>全部分类</span>
+                </div>
+                <div class="slide-bar">
+                  <!--          cascader只能自己单独封装-->
+                  <Cascader />
+                </div>
+              </div>
+          </el-col>
+        </el-row>
       </div>
     </el-main>
     <el-footer  class="footer hidden-xs-only">
@@ -72,8 +74,7 @@
 
 
 import waves from '@/components/waves';
-import Cascader from '@/components/Cascader.vue'
-
+import Cascader from '@/components/Cascader.vue';
 export default {
   //搜索按钮水波纹效果
   directives:{ waves },
@@ -96,10 +97,12 @@ export default {
           value: 'shejiyuanze',
           label: '设计原则',
         }]
-      }]
+      }],
+      isShowBg : Boolean(Math.round(Math.random())),
     }
   },
   methods: {
+
     /**
      * 跳转路由
      * @param {type} string
@@ -108,7 +111,12 @@ export default {
       if(!type) return;
       this.$router.push({ path:type });
     }
-  }
+  },
+  watch:{
+    isShowBg(val){
+      console.log(val,'val')
+    }
+  },
 }
 </script>
 
@@ -148,64 +156,65 @@ export default {
     .search-bar{
       padding:1rem;
     }
-    .shop-nav{
+    .index{
       position:relative;
-      .slide-all{
-        height:40rem;
-        width:100%;
-        .slide-container{
-          border:1px solid black;
-          width:100%;
-          height:30rem;
-          //margin:0 10%;
-          .nav-menu{
-            span{
-              display:block;
-              background-color:@mainBgColor;
-              width:10%;
-              line-height:3rem;
-              font-size:1rem;
-              //margin-left:5rem;
-              text-align:center;
-              color:white;
-            }
-          }
-          .slide-bar{
-            //margin:0 10%;
-            text-align:center;
-            width:10%;
-            //border:1px solid blue;
-            z-index:999;
-            //子元素为block,verticalalign不生效,子元素和父元素行高一致可以垂直居中
-
-          }
-        }
-        //margin:auto 3rem ;
-        //width:auto;
-        //left:6rem;
-
-        .slide{
-          position:absolute;
-          height:30rem;
+      .banner{
+        top:3rem;
+        //left:10rem;
+        z-index:888;
+        .banner-container{
           top:0;
           width:100%;
-          left:46%;
-          transform:translateX(-50%);
-          z-index:888;
+          //height:30rem;
+          text-align:center;
+          //left:46%;
+          //transform:translateX(-50%);
+          //z-index:888;
           .el-carousel{
+            //轮播图背景颜色
             text-align:center;
             .el-carousel__item{
               line-height:30rem;
               & img{
-                height:100%;
+                max-width:100%;
+                max-height:100%;
               }
             }
           }
         }
-
       }
-
+      .shop-nav{
+        position:absolute;
+        top:0;
+        z-index:999;
+        left:10rem;
+          .slide-container{
+            width:100%;
+            height:30rem;
+            .nav-menu{
+              span{
+                display:block;
+                background-color:@mainBgColor;
+                width:10rem;
+                line-height:3rem;
+                font-size:1rem;
+                //margin-left:5rem;
+                text-align:center;
+                color:white;
+              }
+            }
+            .slide-bar{
+              //margin:0 10%;
+              text-align:center;
+              width:10rem;
+              //border:1px solid blue;
+              z-index:999;
+              //子元素为block,verticalalign不生效,子元素和父元素行高一致可以垂直居中
+            }
+          }
+      }
     }
+
 
   }
 }
