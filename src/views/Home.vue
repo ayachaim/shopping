@@ -31,32 +31,32 @@
         </el-row>
       </div>
 <!--      shop nav-->
-      <div class="shop-nav">
-        <div class="slide-all">
-<!--        NavMenu-->
-          <div class="slide-container">
-            <div class="nav-menu hidden-xs-only">
-              <span>全部分类</span>
-            </div>
-            <div class="slide-bar">
-              <!--          cascader只能自己单独封装-->
-              <!--            <el-cascader-panel :options="options"></el-cascader-panel>-->
-              <Cascader />
-            </div>
-          </div>
+<!--      <div class="shop-nav">-->
+<!--        <div class="slide-all">-->
+<!--&lt;!&ndash;        NavMenu&ndash;&gt;-->
+<!--          <div class="slide-container">-->
+<!--            <div class="nav-menu hidden-xs-only">-->
+<!--              <span>全部分类</span>-->
+<!--            </div>-->
+<!--            <div class="slide-bar">-->
+<!--              &lt;!&ndash;          cascader只能自己单独封装&ndash;&gt;-->
+<!--              &lt;!&ndash;            <el-cascader-panel :options="options"></el-cascader-panel>&ndash;&gt;-->
+<!--              <Cascader />-->
+<!--            </div>-->
+<!--          </div>-->
 
-          <div class="slide">
-            <el-carousel height="30rem">
-              <el-carousel-item>
-                <img src='@/assets/ceshi1111.png' alt="slide image">
-              </el-carousel-item>
-              <el-carousel-item>
-                <img src='@/assets/ceshi1111.png' alt="slide image">
-              </el-carousel-item>
-            </el-carousel>
-          </div>
-          </div>
-        </div>
+<!--          <div class="slide">-->
+<!--            <el-carousel height="30rem">-->
+<!--              <el-carousel-item>-->
+<!--&lt;!&ndash;                <img src='@/assets/ceshi1111.png' alt="slide image">&ndash;&gt;-->
+<!--              </el-carousel-item>-->
+<!--              <el-carousel-item>-->
+<!--&lt;!&ndash;                <img src='@/assets/ceshi1111.png' alt="slide image">&ndash;&gt;-->
+<!--              </el-carousel-item>-->
+<!--            </el-carousel>-->
+<!--          </div>-->
+<!--          </div>-->
+<!--        </div>-->
         <!--          slide-->
 
       </div>
@@ -64,7 +64,6 @@
     <el-footer  class="footer hidden-xs-only">
 <!--      backtop-->
       <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
-      <div style="height:300px;width:300px">12312313</div>
     </el-footer>
   </el-container>
 </template>
