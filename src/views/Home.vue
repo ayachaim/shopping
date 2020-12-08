@@ -1,7 +1,7 @@
 <template>
   <div class="pagebody">
 <!--    backToTop不生效-->
-      <el-backtop>
+      <el-backtop target=".pagebody" :bottom="100">
         <div
             style="{
             border:1px solid red;
@@ -17,7 +17,6 @@
           UP
         </div>
       </el-backtop>
-
   <el-container class="container">
 
     <div class="backTop">
@@ -77,8 +76,9 @@
                 </div>
           </el-row>
         </div>
+<!--       加分割线-->
         <div class="recommendation">
-          <el-row type="flex" align="middle" justify="space-around" class="">
+          <el-row type="flex" align="middle" justify="space-around" class="title">
               <div>
                 <h4>springcloud</h4>
                 <h5>分布式微服务</h5>
@@ -204,8 +204,19 @@ export default {
           padding:1rem;
         }
         .recommendation{
-          border:1px solid red;
           margin-top:6rem;
+          .title{
+            div{
+              padding:0.5rem;
+              & img{
+                &:hover{
+                  transform:translateX(-2rem);
+                  //transform延时动画
+                  transition: all 0.5s ease-in-out;
+                }
+              }
+            }
+          }
         }
         .index{
           position:relative;
@@ -266,6 +277,16 @@ export default {
     }
 
   }
+}
+//动画效果
+@keyframes dropdown {
+  0% { margin-top: 0px;}
+  /** 暂停效果 */
+  10% { margin-top: 0px;}
+  50% { margin-top: -100px;}
+  60% { margin-top: -100px;}
+  90% { margin-top: -200px;}
+  100% { margin-top: -200px;}
 }
 
 
