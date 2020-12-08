@@ -101,6 +101,10 @@
               </div>
           </el-row>
         </div>
+<!--        WaterFall View-->
+        <div class="water-fall">
+          <WaterFall />
+        </div>
       </el-main>
       <el-footer  class="footer hidden-xs-only">
   <!--      backtop-->
@@ -115,12 +119,13 @@
 
 import waves from '@/components/waves';
 import Cascader from '@/components/Cascader.vue';
+import WaterFall from '@/components/WaterFall.vue';
 export default {
   //搜索按钮水波纹效果
   directives:{ waves },
   name: 'home',
   components: {
-    Cascader
+    Cascader,WaterFall
   },
   data(){
     return {
@@ -202,6 +207,10 @@ export default {
         //height:150rem;
         .search-bar{
           padding:1rem;
+          & img{
+            max-width:100%;
+            max-height:100%;
+          }
         }
         .recommendation{
           margin-top:6rem;
@@ -209,6 +218,7 @@ export default {
             div{
               padding:0.5rem;
               & img{
+                padding:0.2rem;
                 &:hover{
                   transform:translateX(-2rem);
                   //transform延时动画
@@ -217,6 +227,13 @@ export default {
               }
             }
           }
+        }
+        .water-fall{
+          border:1px solid red;
+          height:30rem;
+          width:100%;
+          overflow: hidden;
+
         }
         .index{
           position:relative;
