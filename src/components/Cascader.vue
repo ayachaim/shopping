@@ -1,12 +1,12 @@
 <template>
   <div class="container hidden-xs-only">
     <ul>
-      <li @click="showLayer"><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
-      <li @click="showLayer"><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
-      <li @click="showLayer"><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
-      <li @click="showLayer"><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
-      <li @click="showLayer"><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
-      <li @click="showLayer"><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
+      <li ><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
+      <li ><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
+      <li ><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
+      <li ><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
+      <li ><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
+      <li ><img src="@/assets/cake.png" alt=""/>甜点/蛋糕&nbsp&nbsp ></li>
     </ul>
   </div>
 </template>

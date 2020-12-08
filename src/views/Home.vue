@@ -21,7 +21,7 @@
         <el-row type="flex" align="middle">
             <img class="hidden-xs-only" src="@/assets/logobig.png" alt="shopping image">
 
-            <el-input clearable="true" placeholder="请输入内容" v-model="input" class="input">
+            <el-input clearable  placeholder="请输入内容" v-model="input" class="input">
               <el-button v-waves slot="append" icon="el-icon-search">搜索</el-button>
             </el-input>
         </el-row>
@@ -82,11 +82,10 @@
     </el-main>
     <el-footer  class="footer hidden-xs-only">
 <!--      backtop-->
-      <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>
+<!--      <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>-->
     </el-footer>
   </el-container>
 </template>
-
 <script>
 
 
@@ -115,6 +114,7 @@ export default {
           label: '设计原则',
         }]
       }],
+      input:"",
       isShowBg : Boolean(Math.round(Math.random())),
     }
   },
@@ -129,6 +129,11 @@ export default {
       this.$router.push({ path:type });
     }
   },
+  watch: {
+  isShowBg(val){
+    console.log(val,'isShowBg')
+  }
+}
 }
 </script>
 
