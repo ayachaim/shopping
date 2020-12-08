@@ -32,7 +32,6 @@
 <!--      shop nav-->
       <div class="index">
         <el-row type="flex" align="middle" justify="center" class="banner">
-          <el-col :xs="{span: 24, offset: 0}" :sm="{span: 24, offset: 0}" :md="{span: 24, offset: 0}" :lg="{span: 24, offset: 0}" :xl="{span: 24, offset: 0}">
             <div class="banner-container">
               <el-carousel height="30rem">
                 <el-carousel-item>
@@ -46,10 +45,8 @@
                 </el-carousel-item>
               </el-carousel>
             </div>
-          </el-col>
         </el-row>
         <el-row type="flex" align="middle" justify="center" class="shop-nav hidden-xs-only hidden-sm-only">
-          <el-col :xs="{span: 0, offset: 0}" :sm="{span: 24, offset: 0}" :md="{span: 24, offset: 0}" :lg="{span: 24, offset: 0}" :xl="{span: 24, offset: 0}">
               <div class="slide-container">
                 <div class="nav-menu">
                   <span>全部分类</span>
@@ -59,7 +56,30 @@
                   <Cascader />
                 </div>
               </div>
-          </el-col>
+        </el-row>
+      </div>
+      <div class="recommendation">
+        <el-row type="flex" align="middle" justify="space-around" class="">
+            <div>
+              <h3>springcloud</h3>
+              <h4>分布式微服务</h4>
+              <img src="@/assets/douyin.jpg" alt="">
+            </div>
+          <div>
+            <h3>springboot</h3>
+            <h4>分布式架构</h4>
+            <img src="@/assets/toutiao.png" alt="">
+          </div>
+          <div>
+            <h3>rabbitMQ</h3>
+            <h4>分布式消息队列</h4>
+            <img src="@/assets/weixin.jpg" alt="">
+            </div>
+            <div>
+              <h3>kafka</h3>
+              <h4>分布式消息队列</h4>
+              <img src="@/assets/zk.jpg" alt="">
+            </div>
         </el-row>
       </div>
     </el-main>
@@ -147,9 +167,13 @@ export default {
   }
   .el-main{
     padding:0;
-    height:100rem;
+    //height:150rem;
     .search-bar{
       padding:1rem;
+    }
+    .recommendation{
+      border:1px solid red;
+      margin-top:6rem;
     }
     .index{
       position:relative;
@@ -161,11 +185,7 @@ export default {
           background: linear-gradient(to right,#d3959b,#bfe6ba);
           top:0;
           width:100%;
-          //height:30rem;
           text-align:center;
-          //left:46%;
-          //transform:translateX(-50%);
-          //z-index:888;
           .el-carousel{
             //轮播图背景颜色
             text-align:center;
@@ -173,7 +193,7 @@ export default {
               line-height:30rem;
               & img{
                 max-width:100%;
-                max-height:100%;
+                height:100%;
               }
             }
           }
